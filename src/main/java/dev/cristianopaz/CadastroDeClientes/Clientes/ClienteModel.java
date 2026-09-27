@@ -1,8 +1,9 @@
-package dev.cristianopaz.CadastroDeClientes;
+package dev.cristianopaz.CadastroDeClientes.Clientes;
 
+import dev.cristianopaz.CadastroDeClientes.Servicos.ServicosModel;
 import jakarta.persistence.*;
 
-// Entity ele transforma uma classe em uma entidade do DB.
+// Entity ele transforma uma classe em uma entidade do DB.ee
 @Entity
 @Table(name = "tb_cadastro")
 public class ClienteModel {
@@ -13,17 +14,20 @@ public class ClienteModel {
     private String nome;
     private String email;
     private String sexo;
-    private int idade;
     private int telefone;
+
+    //@ManyToOne um cliente tem um serviço por vez
+    @ManyToOne
+    @JoinColumn(name = "servicos_id") // Foreing Key ou chave estrangeira
+    private ServicosModel servicos;
 
     public ClienteModel() {
     }
 
-    public ClienteModel(String email, String nome, String sexo, int idade, int telefone) {
+    public ClienteModel(String email, String nome, String sexo, int telefone) {
         this.email = email;
         this.nome = nome;
         this.sexo = sexo;
-        this.idade = idade;
         this.telefone = telefone;
     }
 
@@ -51,13 +55,6 @@ public class ClienteModel {
         this.sexo = sexo;
     }
 
-    public int getIdade() {
-        return idade;
-    }
-
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
 
     public int getTelefone() {
         return telefone;
