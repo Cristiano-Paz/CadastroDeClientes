@@ -19,9 +19,9 @@ public class ServicosModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nomeDoServico;
+    private String nome;
 
-    private String valorDoServico;
+    private String valor;
 
     //@OneToMany - Um serviço pode ter varios clientes
     @OneToMany(mappedBy = "servicos")
