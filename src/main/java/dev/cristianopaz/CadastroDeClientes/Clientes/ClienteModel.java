@@ -16,12 +16,19 @@ public class ClienteModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name = "id")
     private Long id;
+
+    @Column (name = "nome")
     private String nome;
 
-    @Column(unique = true)
+    @Column (unique = true)
     private String email;
-    private String sexo;
+
+    @Column (name = "img_url")
+    private String imgUrl;
+
+    @Column (name = "telefone")
     private int telefone;
 
     //@ManyToOne um cliente tem um serviço por vez
