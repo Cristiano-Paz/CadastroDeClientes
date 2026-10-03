@@ -29,7 +29,7 @@ public class ClienteModel {
     private String imgUrl;
 
     @Column (name = "telefone")
-    private int telefone;
+    private String telefone;
 
     //@ManyToOne um cliente tem um serviço por vez
     @ManyToOne
