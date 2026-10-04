@@ -1,5 +1,6 @@
 package dev.cristianopaz.CadastroDeClientes.Servicos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.cristianopaz.CadastroDeClientes.Clientes.ClienteModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -25,6 +26,7 @@ public class ServicosModel {
 
     //@OneToMany - Um serviço pode ter varios clientes
     @OneToMany(mappedBy = "servicos")
+    @JsonIgnore
     private List<ClienteModel> clientes;
 
 
