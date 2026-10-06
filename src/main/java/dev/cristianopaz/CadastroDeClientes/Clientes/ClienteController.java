@@ -32,9 +32,9 @@ public class ClienteController {
     }
 
     // Mostrar clientes por id (Read)
-    @GetMapping("/listarID")
-    public String mostrarTodosOsClientesPorId() {
-        return "Mostrar Cliente por id";
+    @GetMapping("/listar/{id}")
+    public ClienteModel listarClientesPorId(@PathVariable Long id) {
+        return clienteService.listarClientesPorId(id);
     }
 
     // Alterar dados dos Clientes (Update)
