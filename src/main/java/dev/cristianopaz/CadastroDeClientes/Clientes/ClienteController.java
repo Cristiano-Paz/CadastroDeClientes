@@ -21,8 +21,8 @@ public class ClienteController {
 
     // Adicionar Cliente (Create)
     @PostMapping("/criar")
-    public String criarCliente() {
-        return "Cliente criado";
+    public ClienteModel criarCliente(@RequestBody ClienteModel clienteModel) {
+        return clienteService.criarCliente(clienteModel);
     }
 
     // Mostrar todos os Clientes (Read)
