@@ -29,4 +29,9 @@ public class ClienteService {
         return clienteRepository.save(cliente);
     }
 
+    // Deletar o cliente - Tem que ser um metodo Void
+    public void deletarClientePorId(Long id) {
+        clienteRepository.deleteById(id);
+    }
+
 }
