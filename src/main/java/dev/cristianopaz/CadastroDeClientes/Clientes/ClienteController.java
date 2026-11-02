@@ -44,8 +44,8 @@ public class ClienteController {
     }
 
     // Deletar Cliente (Delete)
-    @DeleteMapping("/deletarID")
-    public String deletarClientePorId() {
-        return "Cliente deletado por id";
+    @DeleteMapping("/deletar/{id}")
+    public void deletarClientePorId(@PathVariable Long id) {
+        clienteService.deletarClientePorId(id);
     }
 }
