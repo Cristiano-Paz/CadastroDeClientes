@@ -36,4 +36,7 @@ public class ClienteModel {
     @JoinColumn(name = "servicos_id") // Foreing Key ou chave estrangeira
     private ServicosModel servicos;
 
+    public void setId(Long id) {
+
+    }
 }
