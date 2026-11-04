@@ -31,9 +31,9 @@ public class ClienteModel {
     @Column (name = "telefone")
     private String telefone;
 
-    //@ManyToOne um cliente tem um serviço por vez
+
     @ManyToOne
-    @JoinColumn(name = "servicos_id") // Foreing Key ou chave estrangeira
+    @JoinColumn(name = "servicos_id")
     private ServicosModel servicos;
 
     public void setId(Long id) {

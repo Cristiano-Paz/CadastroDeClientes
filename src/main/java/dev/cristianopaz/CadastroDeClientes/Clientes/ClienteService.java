@@ -9,10 +9,13 @@ import java.util.Optional;
 public class ClienteService {
 
     private ClienteRepository clienteRepository;
+    private ClienteMapper clienteMapper;
 
-    public ClienteService(ClienteRepository clienteRepository) {
+    public ClienteService(ClienteRepository clienteRepository, ClienteMapper clienteMapper) {
         this.clienteRepository = clienteRepository;
+        this.clienteMapper = clienteMapper;
     }
+
     // Listar todos os meus clientes
     public List<ClienteModel> listarClientes() {
         return clienteRepository.findAll();
@@ -25,8 +28,10 @@ public class ClienteService {
     }
 
     // Criar um novo cliente
-    public ClienteModel criarCliente(ClienteModel cliente) {
-        return clienteRepository.save(cliente);
+    public ClienteDTO criarCliente(ClienteDTO clienteDTO) {
+       ClienteModel cliente = clienteMapper.map(clienteDTO);
+       cliente = clienteRepository.save(cliente);
+       return clienteMapper.map(cliente);
     }
 
     // Deletar o cliente - Tem que ser um metodo Void
