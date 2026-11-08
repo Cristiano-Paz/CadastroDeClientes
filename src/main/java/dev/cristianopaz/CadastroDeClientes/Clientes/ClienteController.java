@@ -27,19 +27,19 @@ public class ClienteController {
 
     // Mostrar todos os Clientes (Read)
     @GetMapping("/listar")
-    public List<ClienteModel> listarClientes() {
+    public List<ClienteDTO> listarClientes() {
         return clienteService.listarClientes();
     }
 
     // Mostrar clientes por id (Read)
     @GetMapping("/listar/{id}")
-    public ClienteModel listarClientesPorId(@PathVariable Long id) {
+    public ClienteDTO listarClientesPorId(@PathVariable Long id) {
         return clienteService.listarClientesPorId(id);
     }
 
     // Alterar dados dos Clientes (Update)
     @PutMapping("/alterar/{id}")
-    public ClienteModel alterarClientePorId(@PathVariable Long id, @RequestBody ClienteModel clienteAtualizado) {
+    public ClienteDTO alterarClientePorId(@PathVariable Long id, @RequestBody ClienteDTO clienteAtualizado) {
         return clienteService.atualizarCliente(id, clienteAtualizado);
     }
 
